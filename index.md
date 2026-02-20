@@ -14,14 +14,15 @@ This site documents what I learn each semester in:
 
 ## Current Semester
 
-### Digital Logic Design
-- K-map simplification
-- Boolean algebra
-- Combinational circuits
 
-### Projects
-- 4-bit full adder
-- Drone telemetry system
+
+## 🚗 Engineering Projects
+
+### IEEE ElectraThon Electric Vehicle
+- Multi-semester electric vehicle design project
+- Battery system, telemetry, CAN bus, Raspberry Pi integration
+
+👉 [View Full Project](electrathon.md)
 
 ---
 

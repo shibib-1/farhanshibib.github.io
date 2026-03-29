@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Farhan Shibib — EE Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #080c10;
+    --surface: #0e1520;
+    --surface2: #131d2a;
+    --border: #1a2d42;
+    --border2: #243d57;
+    --accent: #00c2ff;
+    --accent2: #00ff9d;
+    --text: #c8d8e8;
+    --text-dim: #5a7a95;
+    --mono: 'Share Tech Mono', monospace;
+    --display: 'Syne', sans-serif;
+    --body: 'DM Sans', sans-serif;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,194,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,194,255,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,194,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 60px;
+    background: rgba(8,12,16,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: var(--mono); font-size: 13px; color: var(--accent); text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-family: var(--mono); font-size: 11px; color: var(--text-dim); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 40px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-content { max-width: 700px; }
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent2);
+    border: 1px solid rgba(0,255,157,0.2);
+    background: rgba(0,255,157,0.05);
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 32px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); animation: pulse 2s infinite; }
+  .hero-eyebrow {
+    font-family: var(--mono); font-size: 11px; color: var(--accent);
+    letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin-bottom: 8px;
+    animation: fadeUp 0.6s 0.15s ease both;
+  }
+  .hero-name-accent { color: transparent; -webkit-text-stroke: 1px var(--accent); }
+  .hero-subtitle { font-family: var(--display); font-size: clamp(18px,3vw,28px); font-weight: 400; color: var(--text-dim); margin-bottom: 28px; animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-desc { font-size: 16px; color: var(--text); max-width: 520px; margin-bottom: 44px; animation: fadeUp 0.6s 0.25s ease both; }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
+  .btn { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 28px; border-radius: 3px; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 10px; }
+  .btn-primary { background: var(--accent); color: #000; font-weight: 600; }
+  .btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,194,255,0.3); }
+  .btn-secondary { border: 1px solid var(--border2); color: var(--text-dim); }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  .hero-stats { display: flex; gap: 40px; margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--border); animation: fadeUp 0.6s 0.4s ease both; }
+  .stat-num { font-family: var(--display); font-size: 32px; font-weight: 800; color: #fff; letter-spacing: -0.02em; line-height: 1; }
+  .stat-num span { color: var(--accent); }
+  .stat-label { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+
+  /* SECTIONS */
+  .section { max-width: 1100px; margin: 0 auto; padding: 100px 40px; position: relative; z-index: 1; }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 48px; }
+  .section-tag { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; white-space: nowrap; }
+  .section-line { flex: 1; height: 1px; background: var(--border); }
+  h2 { font-family: var(--display); font-size: clamp(28px,4vw,42px); font-weight: 700; color: #fff; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .section-intro { font-size: 15px; color: var(--text-dim); max-width: 560px; margin-bottom: 48px; }
+
+  /* PROJECT CARD */
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 36px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: start;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--accent); transform: scaleY(0); transform-origin: bottom; transition: transform 0.3s; }
+  .project-card:hover { border-color: var(--border2); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+  .project-card:hover::before { transform: scaleY(1); }
+  .project-tag { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
+  .project-title { font-family: var(--display); font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 12px; letter-spacing: -0.01em; }
+  .project-desc { font-size: 14px; color: var(--text-dim); line-height: 1.6; margin-bottom: 20px; }
+  .project-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip { font-family: var(--mono); font-size: 10px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 2px; color: var(--text-dim); background: var(--surface2); letter-spacing: 0.05em; }
+  .project-arrow { font-size: 24px; color: var(--border2); transition: color 0.2s, transform 0.2s; margin-top: 4px; }
+  .project-card:hover .project-arrow { color: var(--accent); transform: translateX(4px); }
+
+  /* JOURNAL GRID */
+  .journal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .journal-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .journal-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent2), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .journal-card:hover { border-color: var(--border2); transform: translateY(-3px); }
+  .journal-card:hover::after { transform: scaleX(1); }
+  .journal-date { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; }
+  .journal-course { font-family: var(--mono); font-size: 10px; color: var(--accent2); letter-spacing: 0.1em; text-transform: uppercase; }
+  .journal-title { font-family: var(--display); font-size: 18px; font-weight: 700; color: #fff; letter-spacing: -0.01em; line-height: 1.3; }
+  .journal-desc { font-size: 13px; color: var(--text-dim); line-height: 1.6; flex: 1; }
+  .journal-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; }
+  .journal-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .journal-read { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.05em; }
+  .journal-card.soon { opacity: 0.35; pointer-events: none; }
+  .soon-label { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .about-text p { font-size: 15px; color: var(--text); margin-bottom: 16px; }
+  .skills-list { display: flex; flex-direction: column; gap: 14px; }
+  .skill-row { display: flex; align-items: center; gap: 16px; }
+  .skill-name { font-family: var(--mono); font-size: 11px; color: var(--text-dim); width: 120px; flex-shrink: 0; }
+  .skill-bar { flex: 1; height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .skill-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 2px; }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 24px; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; gap: 8px; }
+  .contact-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .contact-icon { font-size: 20px; }
+  .contact-label { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; }
+  .contact-value { font-size: 14px; color: var(--accent); }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; flex-wrap: wrap; gap: 16px; }
+  .footer-text { font-family: var(--mono); font-size: 11px; color: var(--text-dim); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    nav { padding: 0 20px; }
+    .nav-links { gap: 16px; }
+    .hero { padding: 100px 20px 60px; }
+    .section { padding: 80px 20px; }
+    .hero-stats { gap: 24px; }
+    .project-card { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; }
+    footer { padding: 24px 20px; }
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">FS // PORTFOLIO</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#journal">Journal</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="status-badge">
+      <span class="status-dot"></span>
+      USF Electrical Engineering — Active Student
+    </div>
+    <div class="hero-eyebrow">Engineering Portfolio</div>
+    <h1>Farhan<br/><span class="hero-name-accent">Shibib</span></h1>
+    <p class="hero-subtitle">Electrical Engineering Student</p>
+    <p class="hero-desc">
+      Building circuits, writing firmware, and documenting everything I learn.
+      This portfolio is a live record of my engineering journey at the
+      University of South Florida — updated every semester.
+    </p>
+    <div class="hero-cta">
+      <a href="#journal" class="btn btn-primary">View Lab Journal →</a>
+      <a href="#projects" class="btn btn-secondary">Projects</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">1<span>+</span></div>
+        <div class="stat-label">Semesters Logged</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1<span>+</span></div>
+        <div class="stat-label">Lab Entries</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2<span>+</span></div>
+        <div class="stat-label">Active Projects</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="section-header">
+    <span class="section-tag">02 — Projects</span>
+    <div class="section-line"></div>
+  </div>
+  <h2>Engineering Projects</h2>
+  <p class="section-intro">Multi-semester builds and team projects outside of coursework.</p>
+
+  <a href="electrathon.html" class="project-card">
+    <div>
+      <div class="project-tag">IEEE / Multi-Semester</div>
+      <div class="project-title">ElectraThon Electric Vehicle</div>
+      <p class="project-desc">
+        Multi-semester electric vehicle design project as part of the IEEE student chapter.
+        Involves battery system design, real-time telemetry, CAN bus communication,
+        and Raspberry Pi integration for data logging and control.
+      </p>
+      <div class="project-chips">
+        <span class="chip">Battery Systems</span>
+        <span class="chip">CAN Bus</span>
+        <span class="chip">Raspberry Pi</span>
+        <span class="chip">Telemetry</span>
+        <span class="chip">Embedded Systems</span>
+      </div>
+    </div>
+    <div class="project-arrow">→</div>
+  </a>
+</section>
+
+<!-- JOURNAL -->
+<section class="section" id="journal">
+  <div class="section-header">
+    <span class="section-tag">03 — Lab Journal</span>
+    <div class="section-line"></div>
+  </div>
+  <h2>Semester Learning Log</h2>
+  <p class="section-intro">
+    A documented record of every lab, project, and concept I work through each semester —
+    written for future employers and my future self.
+  </p>
+
+  <div class="journal-grid">
+
+    <a href="bcd-adder.html" class="journal-card">
+      <div class="journal-date">March 2026</div>
+      <div class="journal-course">Digital Systems</div>
+      <div class="journal-title">BCD Adder on a Breadboard</div>
+      <p class="journal-desc">
+        Built a full BCD adder using 74HC283 chips, CD4511 decoder, and a 7-segment display.
+        Debugged 7 hardware issues including floating inputs, power supply problems, and burned components.
+      </p>
+      <div class="journal-footer">
+        <div class="journal-chips">
+          <span class="chip">74HC283</span>
+          <span class="chip">CD4511</span>
+          <span class="chip">Debug</span>
+        </div>
+        <span class="journal-read">Read →</span>
+      </div>
+    </a>
+
+    <div class="journal-card soon">
+      <div class="journal-date">Coming soon</div>
+      <div class="journal-course">Electronics</div>
+      <div class="journal-title">Next Lab Entry</div>
+      <p class="journal-desc">Your next lab journal entry will appear here.</p>
+      <div class="journal-footer"><span class="soon-label">IN PROGRESS</span></div>
+    </div>
+
+    <div class="journal-card soon">
+      <div class="journal-date">Coming soon</div>
+      <div class="journal-course">Embedded Systems</div>
+      <div class="journal-title">Next Lab Entry</div>
+      <p class="journal-desc">Your next lab journal entry will appear here.</p>
+      <div class="journal-footer"><span class="soon-label">IN PROGRESS</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-header">
+    <span class="section-tag">04 — About</span>
+    <div class="section-line"></div>
+  </div>
+  <h2>About Me</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm an Electrical Engineering student at the University of South Florida, with a focus on digital systems, embedded electronics, and power systems.</p>
+      <p>This portfolio exists because I believe the best engineers document their work. Every lab entry here represents real hands-on debugging, real mistakes, and real lessons — not just theory.</p>
+      <p>Outside of coursework I'm involved in the IEEE ElectraThon electric vehicle project, working on battery systems and embedded telemetry.</p>
+    </div>
+    <div class="skills-list">
+      <div class="skill-row">
+        <span class="skill-name">Digital Logic</span>
+        <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Circuit Debug</span>
+        <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Breadboarding</span>
+        <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Electronics</span>
+        <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Embedded Sys</span>
+        <div class="skill-bar"><div class="skill-fill" style="width:50%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">PCB Design</span>
+        <div class="skill-bar"><div class="skill-fill" style="width:30%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-header">
+    <span class="section-tag">05 — Contact</span>
+    <div class="section-line"></div>
+  </div>
+  <h2>Get In Touch</h2>
+  <p class="section-intro">Open to internship opportunities, collaborations, and conversations.</p>
+  <div class="contact-grid">
+    <a href="mailto:shibib@usf.edu" class="contact-card">
+      <span class="contact-icon">✉️</span>
+      <span class="contact-label">Email</span>
+      <span class="contact-value">shibib@usf.edu</span>
+    </a>
+    <a href="https://www.linkedin.com/in/farhan-shibib-665a45368/" target="_blank" class="contact-card">
+      <span class="contact-icon">💼</span>
+      <span class="contact-label">LinkedIn</span>
+      <span class="contact-value">farhan-shibib</span>
+    </a>
+    <a href="https://github.com/shibib-1" target="_blank" class="contact-card">
+      <span class="contact-icon">⚡</span>
+      <span class="contact-label">GitHub</span>
+      <span class="contact-value">shibib-1</span>
+    </a>
+    <div class="contact-card">
+      <span class="contact-icon">🎓</span>
+      <span class="contact-label">University</span>
+      <span class="contact-value">USF Tampa</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-text">© 2026 Farhan Shibib — EE Portfolio</span>
+  <span class="footer-text">Built with HTML/CSS — Hosted on GitHub Pages</span>
+</footer>
+
+</body>
+</html>

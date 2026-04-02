@@ -117,6 +117,8 @@
   .hero-name-accent { color: transparent; -webkit-text-stroke: 1px var(--accent); }
   .hero-subtitle { font-family: var(--display); font-size: clamp(18px,3vw,28px); font-weight: 400; color: var(--text-dim); margin-bottom: 28px; animation: fadeUp 0.6s 0.2s ease both; }
   .hero-desc { font-size: 16px; color: var(--text); max-width: 520px; margin-bottom: 44px; animation: fadeUp 0.6s 0.25s ease both; }
+  .hero-about { max-width: 520px; margin-bottom: 44px; animation: fadeUp 0.6s 0.25s ease both; }
+  .hero-about p { font-size: 15px; color: var(--text); margin-bottom: 12px; line-height: 1.7; }
   .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
   .btn { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 28px; border-radius: 3px; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 10px; }
   .btn-primary { background: var(--accent); color: #000; font-weight: 600; }
@@ -193,15 +195,6 @@
   .journal-card.soon { opacity: 0.35; pointer-events: none; }
   .soon-label { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; }
 
-  /* ABOUT */
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-  .about-text p { font-size: 15px; color: var(--text); margin-bottom: 16px; }
-  .skills-list { display: flex; flex-direction: column; gap: 14px; }
-  .skill-row { display: flex; align-items: center; gap: 16px; }
-  .skill-name { font-family: var(--mono); font-size: 11px; color: var(--text-dim); width: 120px; flex-shrink: 0; }
-  .skill-bar { flex: 1; height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
-  .skill-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 2px; }
-
   /* CONTACT */
   .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
   .contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 24px; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; gap: 8px; }
@@ -222,7 +215,6 @@
     .section { padding: 80px 20px; }
     .hero-stats { gap: 24px; }
     .project-card { grid-template-columns: 1fr; }
-    .about-grid { grid-template-columns: 1fr; }
     footer { padding: 24px 20px; }
   }
 
@@ -240,7 +232,6 @@
   <ul class="nav-links">
     <li><a href="#projects">Projects</a></li>
     <li><a href="#journal">Journal</a></li>
-    <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -255,11 +246,11 @@
     <div class="hero-eyebrow">Engineering Portfolio</div>
     <h1>Farhan<br/><span class="hero-name-accent">Shibib</span></h1>
     <p class="hero-subtitle">Electrical Engineering Student</p>
-    <p class="hero-desc">
-      Building circuits, writing firmware, and documenting everything I learn.
-      This portfolio is a live record of my engineering journey at the
-      University of South Florida — updated every semester.
-    </p>
+    <div class="hero-about">
+      <p>I'm an Electrical Engineering student at the University of South Florida, with a focus on digital systems, embedded electronics, and power systems.</p>
+      <p>This portfolio exists because I believe the best engineers document their work. Every lab entry here represents real hands-on debugging, real mistakes, and real lessons — not just theory.</p>
+      <p>Outside of coursework I'm involved in the IEEE ElectraThon electric vehicle project, working on battery systems and embedded telemetry.</p>
+    </div>
     <div class="hero-cta">
       <a href="#journal" class="btn btn-primary">View Lab Journal →</a>
       <a href="#projects" class="btn btn-secondary">Projects</a>
@@ -362,61 +353,19 @@
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="section" id="about">
-  <div class="section-header">
-    <span class="section-tag">04 — About</span>
-    <div class="section-line"></div>
-  </div>
-  <h2>About Me</h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p>I'm an Electrical Engineering student at the University of South Florida, with a focus on digital systems, embedded electronics, and power systems.</p>
-      <p>This portfolio exists because I believe the best engineers document their work. Every lab entry here represents real hands-on debugging, real mistakes, and real lessons — not just theory.</p>
-      <p>Outside of coursework I'm involved in the IEEE ElectraThon electric vehicle project, working on battery systems and embedded telemetry.</p>
-    </div>
-    <div class="skills-list">
-      <div class="skill-row">
-        <span class="skill-name">Digital Logic</span>
-        <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
-      </div>
-      <div class="skill-row">
-        <span class="skill-name">Circuit Debug</span>
-        <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
-      </div>
-      <div class="skill-row">
-        <span class="skill-name">Breadboarding</span>
-        <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
-      </div>
-      <div class="skill-row">
-        <span class="skill-name">Electronics</span>
-        <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
-      </div>
-      <div class="skill-row">
-        <span class="skill-name">Embedded Sys</span>
-        <div class="skill-bar"><div class="skill-fill" style="width:50%"></div></div>
-      </div>
-      <div class="skill-row">
-        <span class="skill-name">PCB Design</span>
-        <div class="skill-bar"><div class="skill-fill" style="width:30%"></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section class="section" id="contact">
   <div class="section-header">
-    <span class="section-tag">05 — Contact</span>
+    <span class="section-tag">04 — Contact</span>
     <div class="section-line"></div>
   </div>
   <h2>Get In Touch</h2>
   <p class="section-intro">Open to internship opportunities, collaborations, and conversations.</p>
   <div class="contact-grid">
-    <a href="mailto:shibib@usf.edu" class="contact-card">
+    <a href="/cdn-cgi/l/email-protection#2d5e45444f444f6d585e4b03484958" class="contact-card">
       <span class="contact-icon">✉️</span>
       <span class="contact-label">Email</span>
-      <span class="contact-value">shibib@usf.edu</span>
+      <span class="contact-value"><span class="__cf_email__" data-cfemail="40332829222922003533266e252435">[email&#160;protected]</span></span>
     </a>
     <a href="https://www.linkedin.com/in/farhan-shibib-665a45368/" target="_blank" class="contact-card">
       <span class="contact-icon">💼</span>
@@ -437,9 +386,4 @@
 </section>
 
 <footer>
-  <span class="footer-text">© 2026 Farhan Shibib — EE Portfolio</span>
-  <span class="footer-text">Built with HTML/CSS — Hosted on GitHub Pages</span>
-</footer>
-
-</body>
-</html>
+  <span class="footer-text">© 2026 Farhan Shibib — EE P

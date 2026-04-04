@@ -14,6 +14,7 @@
     --border2: #243d57;
     --accent: #00c2ff;
     --accent2: #00ff9d;
+    --accent3: #ff9d00;
     --text: #c8d8e8;
     --text-dim: #5a7a95;
     --mono: 'Share Tech Mono', monospace;
@@ -166,6 +167,27 @@
   .project-arrow { font-size: 24px; color: var(--border2); transition: color 0.2s, transform 0.2s; margin-top: 4px; }
   .project-card:hover .project-arrow { color: var(--accent); transform: translateX(4px); }
 
+  /* SCOPE card variant — amber accent */
+  .project-card.scope-card::before { background: var(--accent3); }
+  .project-card.scope-card .project-tag { color: var(--accent3); }
+  .project-card.scope-card:hover .project-arrow { color: var(--accent3); }
+  .scope-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--accent3);
+    border: 1px solid rgba(255,157,0,0.25);
+    background: rgba(255,157,0,0.06);
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-left: 10px;
+    letter-spacing: 0.1em;
+    vertical-align: middle;
+  }
+  .scope-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent3); animation: pulse 2s infinite; }
+
   /* JOURNAL GRID */
   .journal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
   .journal-card {
@@ -249,7 +271,7 @@
     <div class="hero-about">
       <p>I'm an Electrical Engineering student at the University of South Florida, with a focus on digital systems, embedded electronics, and power systems.</p>
       <p>This portfolio exists because I believe the best engineers document their work. Every lab entry here represents real hands-on debugging, real mistakes, and real lessons — not just theory.</p>
-      <p>Outside of coursework I'm involved in the IEEE ElectraThon electric vehicle project, working on battery systems and embedded telemetry.</p>
+      <p>Outside of coursework I'm involved in the IEEE ElectraThon electric vehicle project and SCOPE — the Society for Critical Operations and Preparedness Engineering — working on drone systems, embedded electronics, and field-deployable hardware.</p>
     </div>
     <div class="hero-cta">
       <a href="#journal" class="btn btn-primary">View Lab Journal →</a>
@@ -265,7 +287,7 @@
         <div class="stat-label">Lab Entries</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">2<span>+</span></div>
+        <div class="stat-num">3<span>+</span></div>
         <div class="stat-label">Active Projects</div>
       </div>
     </div>
@@ -281,6 +303,7 @@
   <h2>Engineering Projects</h2>
   <p class="section-intro">Multi-semester builds and team projects outside of coursework.</p>
 
+  <!-- ElectraThon -->
   <a href="electrathon.html" class="project-card">
     <div>
       <div class="project-tag">IEEE / Multi-Semester</div>
@@ -300,6 +323,31 @@
     </div>
     <div class="project-arrow">→</div>
   </a>
+
+  <!-- SCOPE -->
+  <a href="scope.html" class="project-card scope-card">
+    <div>
+      <div class="project-tag">
+        SCOPE — USF Club
+        <span class="scope-badge"><span class="scope-dot"></span>Active</span>
+      </div>
+      <div class="project-title">Society for Critical Operations &amp; Preparedness Engineering</div>
+      <p class="project-desc">
+        Engineering club focused on building field-deployable systems for real-world critical operations.
+        Current work spans autonomous drone platforms, field audio communications, and ruggedized power delivery —
+        with an emphasis on systems that perform when it matters most.
+      </p>
+      <div class="project-chips">
+        <span class="chip">Drone Systems</span>
+        <span class="chip">Autonomous Flight</span>
+        <span class="chip">Power Electronics</span>
+        <span class="chip">Field Comms</span>
+        <span class="chip">Embedded Systems</span>
+      </div>
+    </div>
+    <div class="project-arrow">→</div>
+  </a>
+
 </section>
 
 <!-- JOURNAL -->
@@ -362,10 +410,10 @@
   <h2>Get In Touch</h2>
   <p class="section-intro">Open to internship opportunities, collaborations, and conversations.</p>
   <div class="contact-grid">
-    <a href="/cdn-cgi/l/email-protection#2d5e45444f444f6d585e4b03484958" class="contact-card">
+    <a href="mailto:fshibib@usf.edu" class="contact-card">
       <span class="contact-icon">✉️</span>
       <span class="contact-label">Email</span>
-      <span class="contact-value"><span class="__cf_email__" data-cfemail="40332829222922003533266e252435">[email&#160;protected]</span></span>
+      <span class="contact-value">fshibib@usf.edu</span>
     </a>
     <a href="https://www.linkedin.com/in/farhan-shibib-665a45368/" target="_blank" class="contact-card">
       <span class="contact-icon">💼</span>
@@ -386,4 +434,9 @@
 </section>
 
 <footer>
-  <span class="footer-text">© 2026 Farhan Shibib — EE P
+  <span class="footer-text">© 2026 Farhan Shibib — EE Portfolio</span>
+  <span class="footer-text">USF Tampa · IEEE · SCOPE</span>
+</footer>
+
+</body>
+</html>

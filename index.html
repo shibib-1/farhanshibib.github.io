@@ -240,6 +240,19 @@
     footer { padding: 24px 20px; }
   }
 
+  /* COMMUNITY CARD — green accent variant */
+  .project-card.community-card::before { background: var(--accent2); }
+  .project-card.community-card .project-tag { color: var(--accent2); }
+  .project-card.community-card:hover .project-arrow { color: var(--accent2); }
+  .community-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--mono); font-size: 9px; color: var(--accent2);
+    border: 1px solid rgba(0,255,157,0.25); background: rgba(0,255,157,0.06);
+    padding: 3px 10px; border-radius: 100px; margin-left: 10px;
+    letter-spacing: 0.1em; vertical-align: middle;
+  }
+  .community-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent2); }
+
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
   ::-webkit-scrollbar { width: 5px; }
@@ -253,6 +266,7 @@
   <a href="#" class="nav-logo">FS // PORTFOLIO</a>
   <ul class="nav-links">
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#community">Community</a></li>
     <li><a href="#journal">Journal</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -350,10 +364,43 @@
 
 </section>
 
+<!-- COMMUNITY -->
+<section class="section" id="community">
+  <div class="section-header">
+    <span class="section-tag">03 — Community</span>
+    <div class="section-line"></div>
+  </div>
+  <h2>Giving Back</h2>
+  <p class="section-intro">Engineering knowledge put to use outside the lab — in the community.</p>
+
+  <a href="community.html" class="project-card community-card">
+    <div>
+      <div class="project-tag">
+        SCOPE Outreach · April 2026
+        <span class="community-badge"><span class="community-dot"></span>Completed</span>
+      </div>
+      <div class="project-title">First Aid &amp; Emergency Preparedness — Temple Terrace Elementary</div>
+      <p class="project-desc">
+        Spent a day with 4th graders at Temple Terrace Elementary teaching real-world emergency preparedness —
+        fire safety, hurricane response, and general emergency protocols. Every student built their own
+        first aid kit to take home and earned a training certificate. Hands-on, STEM-grounded, and genuinely impactful.
+      </p>
+      <div class="project-chips">
+        <span class="chip">Fire Safety</span>
+        <span class="chip">Hurricane Prep</span>
+        <span class="chip">First Aid Kits</span>
+        <span class="chip">~30 Students</span>
+        <span class="chip">USF SCOPE</span>
+      </div>
+    </div>
+    <div class="project-arrow">→</div>
+  </a>
+</section>
+
 <!-- JOURNAL -->
 <section class="section" id="journal">
   <div class="section-header">
-    <span class="section-tag">03 — Lab Journal</span>
+    <span class="section-tag">04 — Lab Journal</span>
     <div class="section-line"></div>
   </div>
   <h2>Semester Learning Log</h2>
@@ -404,16 +451,16 @@
 <!-- CONTACT -->
 <section class="section" id="contact">
   <div class="section-header">
-    <span class="section-tag">04 — Contact</span>
+    <span class="section-tag">05 — Contact</span>
     <div class="section-line"></div>
   </div>
   <h2>Get In Touch</h2>
   <p class="section-intro">Open to internship opportunities, collaborations, and conversations.</p>
   <div class="contact-grid">
-    <a href="mailto:fshibib@usf.edu" class="contact-card">
+    <a href="mailto:shibib@usf.edu" class="contact-card">
       <span class="contact-icon">✉️</span>
       <span class="contact-label">Email</span>
-      <span class="contact-value">fshibib@usf.edu</span>
+      <span class="contact-value">shibib@usf.edu</span>
     </a>
     <a href="https://www.linkedin.com/in/farhan-shibib-665a45368/" target="_blank" class="contact-card">
       <span class="contact-icon">💼</span>

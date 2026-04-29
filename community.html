@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Community Outreach — Farhan Shibib</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #080c10;
+    --surface: #0e1520;
+    --surface2: #131d2a;
+    --border: #1a2d42;
+    --border2: #243d57;
+    --accent: #00c2ff;
+    --accent2: #00ff9d;
+    --accent3: #ff9d00;
+    --text: #c8d8e8;
+    --text-dim: #5a7a95;
+    --mono: 'Share Tech Mono', monospace;
+    --display: 'Syne', sans-serif;
+    --body: 'DM Sans', sans-serif;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,255,157,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,157,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none; z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed; top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,255,157,0.05) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    background: rgba(8,12,16,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: var(--mono); font-size: 13px; color: var(--accent); text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-family: var(--mono); font-size: 11px; color: var(--text-dim); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent2); }
+  .nav-links a.active { color: var(--accent2); }
+
+  /* PAGE WRAPPER */
+  .page { max-width: 1000px; margin: 0 auto; padding: 100px 40px 80px; position: relative; z-index: 1; }
+
+  /* BACK LINK */
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 11px; color: var(--text-dim);
+    text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 48px; transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--accent2); }
+  .back-link::before { content: '←'; }
+
+  /* HERO BLOCK */
+  .event-hero { margin-bottom: 64px; }
+  .event-eyebrow {
+    font-family: var(--mono); font-size: 11px; color: var(--accent2);
+    letter-spacing: 0.2em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+  }
+  .event-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--accent2); }
+  .event-title {
+    font-family: var(--display); font-size: clamp(32px, 5vw, 56px);
+    font-weight: 800; color: #fff; letter-spacing: -0.03em;
+    line-height: 1.05; margin-bottom: 20px;
+  }
+  .event-title span { color: transparent; -webkit-text-stroke: 1px var(--accent2); }
+  .event-meta {
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .meta-chip {
+    font-family: var(--mono); font-size: 10px; padding: 5px 14px;
+    border: 1px solid var(--border2); border-radius: 100px;
+    color: var(--text-dim); letter-spacing: 0.08em;
+  }
+  .meta-chip.green { border-color: rgba(0,255,157,0.3); color: var(--accent2); background: rgba(0,255,157,0.05); }
+  .event-lead {
+    font-size: 18px; color: var(--text); line-height: 1.8;
+    max-width: 700px; border-left: 3px solid var(--accent2);
+    padding-left: 24px; margin-bottom: 0;
+  }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--border); margin: 48px 0; }
+
+  /* SECTION LABEL */
+  .label {
+    font-family: var(--mono); font-size: 10px; color: var(--text-dim);
+    letter-spacing: 0.2em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 12px; margin-bottom: 28px;
+  }
+  .label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* STORY */
+  .story p {
+    font-size: 15px; color: var(--text); line-height: 1.85;
+    margin-bottom: 20px; max-width: 720px;
+  }
+  .story p:last-child { margin-bottom: 0; }
+
+  /* HIGHLIGHTS GRID */
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px; margin-bottom: 0;
+  }
+  .highlight {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px; padding: 20px 22px;
+    position: relative; overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .highlight::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--accent2), transparent);
+  }
+  .highlight:hover { border-color: var(--border2); transform: translateY(-2px); }
+  .highlight-icon { font-size: 22px; margin-bottom: 10px; display: block; }
+  .highlight-title {
+    font-family: var(--mono); font-size: 10px; color: var(--accent2);
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px;
+  }
+  .highlight-text { font-size: 13px; color: var(--text-dim); line-height: 1.55; }
+
+  /* GALLERY */
+  .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
+  }
+  .gallery-item {
+    border-radius: 5px; overflow: hidden;
+    background: var(--surface2); border: 1px solid var(--border);
+    position: relative;
+  }
+  .gallery-item img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.45s ease, filter 0.45s ease;
+    filter: brightness(0.82) saturate(0.85);
+  }
+  .gallery-item:hover img { transform: scale(1.05); filter: brightness(1) saturate(1); }
+  .gallery-item.tall {
+    grid-row: span 2;
+  }
+  .gi-1 { aspect-ratio: 4/3; }
+  .gi-2 { aspect-ratio: 4/5; grid-row: span 2; }
+  .gi-3 { aspect-ratio: 4/3; }
+  .gi-4 { aspect-ratio: 16/9; grid-column: span 2; }
+
+  /* CAPTION */
+  .gallery-caption {
+    font-family: var(--mono); font-size: 10px; color: var(--text-dim);
+    letter-spacing: 0.08em; margin-top: 10px; text-align: center;
+  }
+
+  /* VIDEO */
+  .video-wrap {
+    border-radius: 6px; overflow: hidden;
+    border: 1px solid var(--border); background: #000;
+    position: relative;
+  }
+  .video-wrap video {
+    width: 100%; display: block; max-height: 480px; object-fit: contain;
+  }
+
+  /* CERTIFICATE CALLOUT */
+  .cert-callout {
+    background: var(--surface);
+    border: 1px solid rgba(0,255,157,0.2);
+    border-radius: 6px; padding: 28px 32px;
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  .cert-icon { font-size: 40px; flex-shrink: 0; }
+  .cert-text h3 {
+    font-family: var(--display); font-size: 18px; font-weight: 700;
+    color: #fff; margin-bottom: 6px;
+  }
+  .cert-text p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+
+  /* PARTNER STRIP */
+  .partner-strip {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    padding: 20px 0;
+  }
+  .partner-label {
+    font-family: var(--mono); font-size: 10px; color: var(--text-dim);
+    letter-spacing: 0.1em; text-transform: uppercase; margin-right: 4px;
+  }
+  .partner-chip {
+    font-family: var(--mono); font-size: 10px; padding: 5px 14px;
+    border: 1px solid rgba(0,255,157,0.25); border-radius: 100px;
+    color: var(--accent2); background: rgba(0,255,157,0.05); letter-spacing: 0.05em;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border); padding: 32px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    position: relative; z-index: 1; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-text { font-family: var(--mono); font-size: 11px; color: var(--text-dim); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    nav { padding: 0 20px; }
+    .nav-links { gap: 16px; }
+    .page { padding: 90px 20px 60px; }
+    .gallery { grid-template-columns: 1fr; }
+    .gi-2 { grid-row: span 1; aspect-ratio: 4/3; }
+    .gi-4 { grid-column: span 1; }
+    footer { padding: 24px 20px; }
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">FS // PORTFOLIO</a>
+  <ul class="nav-links">
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#community" class="active">Community</a></li>
+    <li><a href="index.html#journal">Journal</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <a href="index.html#community" class="back-link">Back to Portfolio</a>
+
+  <!-- HERO -->
+  <div class="event-hero">
+    <div class="event-eyebrow">SCOPE Outreach · April 2026</div>
+    <h1 class="event-title">First Aid &amp;<br/><span>Emergency Preparedness</span></h1>
+    <div class="event-meta">
+      <span class="meta-chip green">✓ Completed</span>
+      <span class="meta-chip">Temple Terrace Elementary</span>
+      <span class="meta-chip">Tampa, FL</span>
+      <span class="meta-chip">~30 Students Reached</span>
+    </div>
+    <p class="event-lead">
+      Our SCOPE team stepped outside the lab and into a 4th grade classroom — spending a full day
+      teaching kids what to actually do when emergencies happen. Not textbook theory.
+      Real scenarios, hands-on kits, and skills they walked out the door with.
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- STORY -->
+  <div class="label">The Day</div>
+  <div class="story">
+    <p>
+      When most people think about engineering, they picture labs and circuit boards. This event
+      was about something different — using what we know to genuinely help people who need it.
+      We partnered with Temple Terrace Elementary, one of Hillsborough County's community schools,
+      and spent an afternoon with their 4th graders learning about emergencies together.
+    </p>
+    <p>
+      The session covered three core scenarios: what to do when there's a fire, how to prepare
+      for and respond to a hurricane, and how to handle general medical emergencies. For each one,
+      we broke down the STEM behind it — why smoke rises, how storm surge works, what happens to
+      your body under stress — in language that made it click for a 9-year-old.
+    </p>
+    <p>
+      The highlight was the hands-on portion. Every student assembled their own first aid kit from
+      scratch — bandages, gauze, instructions — and got to decorate the box to make it theirs.
+      They left with something real, something they could actually use. At the end of the session,
+      each student received a training certificate. You could see how much that meant to them.
+    </p>
+    <p>
+      Moments like this are a reminder of why we're in engineering in the first place.
+      Skills only matter if they reach people.
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- WHAT WE COVERED -->
+  <div class="label">What We Covered</div>
+  <div class="highlights">
+    <div class="highlight">
+      <span class="highlight-icon">🔥</span>
+      <div class="highlight-title">Fire Safety</div>
+      <p class="highlight-text">Escape planning, stop-drop-roll, and the science of how heat and smoke move through a building.</p>
+    </div>
+    <div class="highlight">
+      <span class="highlight-icon">🌀</span>
+      <div class="highlight-title">Hurricane Response</div>
+      <p class="highlight-text">Storm timelines, shelter-in-place decisions, what belongs in an emergency bag, and how to stay safe before power goes out.</p>
+    </div>
+    <div class="highlight">
+      <span class="highlight-icon">🚑</span>
+      <div class="highlight-title">General Emergencies</div>
+      <p class="highlight-text">When to call 911, how to describe a location clearly, and basic first-response awareness every kid should have.</p>
+    </div>
+    <div class="highlight">
+      <span class="highlight-icon">🧰</span>
+      <div class="highlight-title">DIY First Aid Kits</div>
+      <p class="highlight-text">Each student built and decorated their own kit — bandages, gauze, and instructions — to take home and keep.</p>
+    </div>
+    <div class="highlight">
+      <span class="highlight-icon">📜</span>
+      <div class="highlight-title">Training Certificates</div>
+      <p class="highlight-text">Every participant earned a Red Cross–style certificate at the end of the session, acknowledging their completion.</p>
+    </div>
+    <div class="highlight">
+      <span class="highlight-icon">🤝</span>
+      <div class="highlight-title">~30 Students</div>
+      <p class="highlight-text">A full class of 4th graders engaged start to finish — asking questions, laughing, and actually retaining it.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- GALLERY -->
+  <div class="label">Event Photos</div>
+  <div class="gallery">
+    <div class="gallery-item gi-1">
+      <img src="images/community/overview.jpeg" alt="SCOPE volunteers setting up in the school library" loading="lazy"/>
+    </div>
+    <div class="gallery-item gi-2">
+      <img src="images/community/certificate.jpeg" alt="Farhan holding first aid training certificate and kit" loading="lazy"/>
+    </div>
+    <div class="gallery-item gi-3">
+      <img src="images/community/roleplay.jpeg" alt="Emergency response roleplay demonstration on the library floor" loading="lazy"/>
+    </div>
+    <div class="gallery-item gi-4">
+      <img src="images/community/group.jpeg" alt="Students holding up their earned training certificates" loading="lazy"/>
+    </div>
+  </div>
+  <p class="gallery-caption">Temple Terrace Elementary · April 2026 · Photos via WhatsApp</p>
+
+  <div class="divider"></div>
+
+  <!-- VIDEO -->
+  <div class="label">Event Highlight Video</div>
+  <div class="video-wrap">
+    <video controls preload="metadata">
+      <source src="images/community/event.mp4" type="video/mp4"/>
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CERTIFICATE CALLOUT -->
+  <div class="cert-callout">
+    <span class="cert-icon">📜</span>
+    <div class="cert-text">
+      <h3>Every student walked out certified.</h3>
+      <p>
+        At the end of the session, each 4th grader received a hands-on training certificate —
+        a real takeaway that said: you learned something today that could help someone.
+        That's the whole point.
+      </p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- PARTNERS -->
+  <div class="label">In Partnership With</div>
+  <div class="partner-strip">
+    <span class="partner-label">Organizations</span>
+    <span class="partner-chip">USF SCOPE</span>
+    <span class="partner-chip">Temple Terrace Elementary</span>
+    <span class="partner-chip">Hillsborough County Schools</span>
+    <span class="partner-chip">University of South Florida</span>
+  </div>
+
+</div><!-- end .page -->
+
+<footer>
+  <span class="footer-text">© 2026 Farhan Shibib — EE Portfolio</span>
+  <span class="footer-text">USF Tampa · IEEE · SCOPE</span>
+</footer>
+
+</body>
+</html>

@@ -117,7 +117,6 @@
   }
   .hero-name-accent { color: transparent; -webkit-text-stroke: 1px var(--accent); }
   .hero-subtitle { font-family: var(--display); font-size: clamp(18px,3vw,28px); font-weight: 400; color: var(--text-dim); margin-bottom: 28px; animation: fadeUp 0.6s 0.2s ease both; }
-  .hero-desc { font-size: 16px; color: var(--text); max-width: 520px; margin-bottom: 44px; animation: fadeUp 0.6s 0.25s ease both; }
   .hero-about { max-width: 520px; margin-bottom: 44px; animation: fadeUp 0.6s 0.25s ease both; }
   .hero-about p { font-size: 15px; color: var(--text); margin-bottom: 12px; line-height: 1.7; }
   .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
@@ -167,42 +166,39 @@
   .project-arrow { font-size: 24px; color: var(--border2); transition: color 0.2s, transform 0.2s; margin-top: 4px; }
   .project-card:hover .project-arrow { color: var(--accent); transform: translateX(4px); }
 
-  /* SCOPE card variant — amber accent */
+  /* SCOPE card variant */
   .project-card.scope-card::before { background: var(--accent3); }
   .project-card.scope-card .project-tag { color: var(--accent3); }
   .project-card.scope-card:hover .project-arrow { color: var(--accent3); }
   .scope-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--mono);
-    font-size: 9px;
-    color: var(--accent3);
-    border: 1px solid rgba(255,157,0,0.25);
-    background: rgba(255,157,0,0.06);
-    padding: 3px 10px;
-    border-radius: 100px;
-    margin-left: 10px;
-    letter-spacing: 0.1em;
-    vertical-align: middle;
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--mono); font-size: 9px; color: var(--accent3);
+    border: 1px solid rgba(255,157,0,0.25); background: rgba(255,157,0,0.06);
+    padding: 3px 10px; border-radius: 100px; margin-left: 10px;
+    letter-spacing: 0.1em; vertical-align: middle;
   }
   .scope-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent3); animation: pulse 2s infinite; }
+
+  /* COMMUNITY card variant */
+  .project-card.community-card::before { background: var(--accent2); }
+  .project-card.community-card .project-tag { color: var(--accent2); }
+  .project-card.community-card:hover .project-arrow { color: var(--accent2); }
+  .community-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--mono); font-size: 9px; color: var(--accent2);
+    border: 1px solid rgba(0,255,157,0.25); background: rgba(0,255,157,0.06);
+    padding: 3px 10px; border-radius: 100px; margin-left: 10px;
+    letter-spacing: 0.1em; vertical-align: middle;
+  }
+  .community-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent2); }
 
   /* JOURNAL GRID */
   .journal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
   .journal-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 28px;
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    transition: border-color 0.2s, transform 0.2s;
-    position: relative;
-    overflow: hidden;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+    padding: 28px; text-decoration: none; color: inherit; display: flex;
+    flex-direction: column; gap: 12px; transition: border-color 0.2s, transform 0.2s;
+    position: relative; overflow: hidden;
   }
   .journal-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent2), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
   .journal-card:hover { border-color: var(--border2); transform: translateY(-3px); }
@@ -229,7 +225,6 @@
   footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; flex-wrap: wrap; gap: 16px; }
   .footer-text { font-family: var(--mono); font-size: 11px; color: var(--text-dim); }
 
-  /* RESPONSIVE */
   @media (max-width: 700px) {
     nav { padding: 0 20px; }
     .nav-links { gap: 16px; }
@@ -239,19 +234,6 @@
     .project-card { grid-template-columns: 1fr; }
     footer { padding: 24px 20px; }
   }
-
-  /* COMMUNITY CARD — green accent variant */
-  .project-card.community-card::before { background: var(--accent2); }
-  .project-card.community-card .project-tag { color: var(--accent2); }
-  .project-card.community-card:hover .project-arrow { color: var(--accent2); }
-  .community-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-family: var(--mono); font-size: 9px; color: var(--accent2);
-    border: 1px solid rgba(0,255,157,0.25); background: rgba(0,255,157,0.06);
-    padding: 3px 10px; border-radius: 100px; margin-left: 10px;
-    letter-spacing: 0.1em; vertical-align: middle;
-  }
-  .community-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent2); }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
@@ -285,7 +267,7 @@
     <div class="hero-about">
       <p>I'm an Electrical Engineering student at the University of South Florida, with a focus on digital systems, embedded electronics, and power systems.</p>
       <p>This portfolio exists because I believe the best engineers document their work. Every lab entry here represents real hands-on debugging, real mistakes, and real lessons — not just theory.</p>
-      <p>Outside of coursework I'm involved in the IEEE ElectraThon electric vehicle project and SCOPE — the Society for Critical Operations and Preparedness Engineering — working on drone systems, embedded electronics, and field-deployable hardware.</p>
+      <p>Outside of coursework I'm involved in the IEEE ElectraThon electric vehicle project and SCOPE — the Society for Critical Operations and Preparedness Engineering — working on drone systems, embedded electronics, power delivery, and field-deployable hardware.</p>
     </div>
     <div class="hero-cta">
       <a href="#journal" class="btn btn-primary">View Lab Journal →</a>
@@ -323,13 +305,14 @@
       <div class="project-tag">IEEE / Multi-Semester</div>
       <div class="project-title">ElectraThon Electric Vehicle</div>
       <p class="project-desc">
-        Multi-semester electric vehicle design project as part of the IEEE student chapter.
-        Involves battery system design, real-time telemetry, CAN bus communication,
-        and Raspberry Pi integration for data logging and control.
+        Multi-semester electric vehicle design project through the IEEE student chapter.
+        Work spans a 7s3p Molicel Li-Ion battery pack, a 30V–24V DC-DC buck converter for onboard
+        audio and lighting, real-time telemetry via Raspberry Pi, and embedded firmware for
+        data logging and driver alerts during competition runs.
       </p>
       <div class="project-chips">
         <span class="chip">Battery Systems</span>
-        <span class="chip">CAN Bus</span>
+        <span class="chip">Power Electronics</span>
         <span class="chip">Raspberry Pi</span>
         <span class="chip">Telemetry</span>
         <span class="chip">Embedded Systems</span>
@@ -347,15 +330,18 @@
       </div>
       <div class="project-title">Society for Critical Operations &amp; Preparedness Engineering</div>
       <p class="project-desc">
-        Engineering club focused on building field-deployable systems for real-world critical operations.
-        Current work spans autonomous drone platforms, field audio communications, and ruggedized power delivery —
-        with an emphasis on systems that perform when it matters most.
+        Engineering club building field-deployable systems for real-world critical operations.
+        Current work includes an autonomous drone platform with ArduPilot, a web interface
+        to control an onboard electromagnet via MOSFET switching, live video streaming from
+        the drone via Raspberry Pi, and a custom 5V power delivery chain from LiPo battery
+        through an LM2596 buck converter.
       </p>
       <div class="project-chips">
         <span class="chip">Drone Systems</span>
-        <span class="chip">Autonomous Flight</span>
+        <span class="chip">ArduPilot</span>
         <span class="chip">Power Electronics</span>
-        <span class="chip">Field Comms</span>
+        <span class="chip">Raspberry Pi</span>
+        <span class="chip">Web Interface</span>
         <span class="chip">Embedded Systems</span>
       </div>
     </div>

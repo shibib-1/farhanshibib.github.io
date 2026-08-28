@@ -430,27 +430,30 @@
     <div class="section-line"></div>
   </div>
   <h2>Resume</h2>
-  <p class="section-intro">Here is a quick look at my skills and academic background. You can download the full PDF below.</p>
+  <p class="section-intro">Here is a quick look at my skills and academic background. You can read or download the full PDF below.</p>
 
-  <div class="project-card">
-    <div>
+  <div class="project-card" style="display: block;">
+    <div style="margin-bottom: 24px;">
       <div class="project-tag">USF · GPA: 3.93</div>
       <div class="project-title">Education &amp; Core Skills</div>
-      <p class="project-desc">
-        Currently pursuing a BSc in Electrical and Electronics Engineering. 
-        I'm heavily focused on applying Python and C to robotics, UAV, and embedded systems, 
-        and I'm currently looking for internships to gain more industry experience.
-      </p>
-      <div class="project-chips">
+      <div class="project-chips" style="margin-top: 12px;">
         <span class="chip">C</span>
         <span class="chip">Python</span>
         <span class="chip">Embedded Systems</span>
         <span class="chip">Simulink</span>
         <span class="chip">Project Management</span>
       </div>
-      <br><br>
-      <a href="Farhan_Shibib_Resume AUG 2026_2.pdf" class="btn btn-primary" download>Download Resume (PDF)</a>
     </div>
+    
+    <!-- Embedded PDF Viewer -->
+    <iframe 
+      src="resume.pdf" 
+      width="100%" 
+      height="500px" 
+      style="border: 1px solid var(--border); border-radius: 4px; margin-bottom: 24px; background: #fff;">
+    </iframe>
+
+    <a href="resume.pdf" class="btn btn-primary" download>Download Resume (PDF)</a>
   </div>
 </section>
 

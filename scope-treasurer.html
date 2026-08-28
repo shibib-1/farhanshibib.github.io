@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Treasurer &amp; Project Lead, SCOPE — Farhan Shibib</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #080c10;
+    --surface: #0e1520;
+    --surface2: #131d2a;
+    --border: #1a2d42;
+    --border2: #243d57;
+    --accent: #00c2ff;
+    --accent2: #00ff9d;
+    --accent3: #ff9d00;
+    --text: #c8d8e8;
+    --text-dim: #5a7a95;
+    --mono: 'Share Tech Mono', monospace;
+    --display: 'Syne', sans-serif;
+    --body: 'DM Sans', sans-serif;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,194,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,194,255,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 60px;
+    background: rgba(8,12,16,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: var(--mono); font-size: 13px; color: var(--accent); text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-family: var(--mono); font-size: 11px; color: var(--text-dim); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* PAGE HEADER */
+  .page-header { max-width: 900px; margin: 0 auto; padding: 140px 40px 60px; position: relative; z-index: 1; }
+  .back-link { font-family: var(--mono); font-size: 11px; color: var(--text-dim); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; }
+  .back-link:hover { color: var(--accent); }
+  .page-tag { font-family: var(--mono); font-size: 11px; color: var(--accent3); letter-spacing: 0.2em; text-transform: uppercase; margin: 28px 0 16px; display: flex; align-items: center; gap: 12px; }
+  .page-tag::before { content: ''; width: 32px; height: 1px; background: var(--accent3); }
+  h1 { font-family: var(--display); font-size: clamp(36px, 6vw, 56px); font-weight: 800; color: #fff; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .page-subtitle { font-family: var(--display); font-size: clamp(16px,2.5vw,20px); color: var(--text-dim); margin-bottom: 8px; }
+
+  /* SECTIONS */
+  .section { max-width: 900px; margin: 0 auto; padding: 40px; position: relative; z-index: 1; }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .section-tag { font-family: var(--mono); font-size: 11px; color: var(--accent3); letter-spacing: 0.2em; text-transform: uppercase; white-space: nowrap; }
+  .section-line { flex: 1; height: 1px; background: var(--border); }
+  h2 { font-family: var(--display); font-size: clamp(22px,3vw,30px); font-weight: 700; color: #fff; letter-spacing: -0.02em; margin-bottom: 16px; }
+  .body-text p { font-size: 15px; color: var(--text); margin-bottom: 16px; max-width: 700px; }
+
+  .chip-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+  .chip { font-family: var(--mono); font-size: 10px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 2px; color: var(--text-dim); background: var(--surface2); letter-spacing: 0.05em; }
+
+  /* IMAGE PLACEHOLDER */
+  .image-placeholder {
+    border: 1px dashed var(--border2); border-radius: 6px; background: var(--surface);
+    min-height: 220px; display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.1em;
+    text-transform: uppercase; margin: 24px 0;
+  }
+
+  /* LIST */
+  ul.plain-list { list-style: none; margin-top: 8px; }
+  ul.plain-list li { font-size: 15px; color: var(--text); padding-left: 22px; position: relative; margin-bottom: 12px; max-width: 700px; }
+  ul.plain-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent3); }
+
+  /* TIMELINE */
+  .timeline { margin-top: 8px; }
+  .timeline-item { display: flex; gap: 20px; padding-bottom: 24px; position: relative; }
+  .timeline-item:not(:last-child)::before { content: ''; position: absolute; left: 5px; top: 18px; bottom: 0; width: 1px; background: var(--border); }
+  .timeline-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--accent3); flex-shrink: 0; margin-top: 4px; }
+  .timeline-date { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .timeline-text { font-size: 14px; color: var(--text); }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; flex-wrap: wrap; gap: 16px; max-width: 900px; margin: 0 auto; }
+  .footer-text { font-family: var(--mono); font-size: 11px; color: var(--text-dim); }
+
+  @media (max-width: 700px) {
+    nav { padding: 0 20px; }
+    .nav-links { gap: 16px; }
+    .page-header { padding: 120px 20px 40px; }
+    .section { padding: 30px 20px; }
+    footer { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">FS // PORTFOLIO</a>
+  <ul class="nav-links">
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#leadership">Leadership</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <a href="index.html#leadership" class="back-link">← Back to Leadership</a>
+  <div class="page-tag">SCOPE — USF Club</div>
+  <h1>Treasurer &amp; Project Lead</h1>
+  <p class="page-subtitle">Society for Critical Operations &amp; Preparedness Engineering</p>
+</div>
+
+<section class="section">
+  <div class="section-header">
+    <span class="section-tag">Overview</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="body-text">
+    <p>
+      I joined SCOPE as a general member in fall 2025, working on the club's UAV project —
+      helping with ArduPilot integration, electromagnet payload control, and the power delivery
+      chain for the drone. In spring 2026 I was promoted to Treasurer and Project Lead.
+    </p>
+    <p>
+      The technical work on the drone platform still shows up under Projects on this site — this
+      page is about the other half of the role: running the club's budget and keeping our
+      projects moving.
+    </p>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div>
+        <div class="timeline-date">Fall 2025</div>
+        <div class="timeline-text">Joined SCOPE as a general member, working on the UAV project.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div>
+        <div class="timeline-date">Spring 2026</div>
+        <div class="timeline-text">Promoted to Treasurer &amp; Project Lead.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <span class="section-tag">What I Actually Do</span>
+    <div class="section-line"></div>
+  </div>
+  <ul class="plain-list">
+    <li>Manage the club's budget — tracking spending and making sure funds are there for parts and events.</li>
+    <li>Help keep our projects, like the public safety drone, on schedule.</li>
+    <li>Design promotional materials for the club, matching SCOPE's established visual branding.</li>
+    <li>Helped organize and run SCOPE's outreach event at Temple Terrace Elementary, teaching around 90 4th graders fire safety, hurricane prep, and first aid.</li>
+  </ul>
+  <div class="chip-row">
+    <span class="chip">Budget &amp; Finance</span>
+    <span class="chip">Project Leadership</span>
+    <span class="chip">Community Outreach</span>
+    <span class="chip">Design</span>
+  </div>
+  <div class="image-placeholder">Photos — coming soon</div>
+</section>
+
+<footer>
+  <span class="footer-text">© 2026 Farhan Shibib — EE Portfolio</span>
+  <span class="footer-text">USF Tampa · IEEE · SCOPE</span>
+</footer>
+
+</body>
+</html>

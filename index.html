@@ -192,27 +192,6 @@
   }
   .community-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent2); }
 
-  /* JOURNAL GRID */
-  .journal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
-  .journal-card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
-    padding: 28px; text-decoration: none; color: inherit; display: flex;
-    flex-direction: column; gap: 12px; transition: border-color 0.2s, transform 0.2s;
-    position: relative; overflow: hidden;
-  }
-  .journal-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent2), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
-  .journal-card:hover { border-color: var(--border2); transform: translateY(-3px); }
-  .journal-card:hover::after { transform: scaleX(1); }
-  .journal-date { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; }
-  .journal-course { font-family: var(--mono); font-size: 10px; color: var(--accent2); letter-spacing: 0.1em; text-transform: uppercase; }
-  .journal-title { font-family: var(--display); font-size: 18px; font-weight: 700; color: #fff; letter-spacing: -0.01em; line-height: 1.3; }
-  .journal-desc { font-size: 13px; color: var(--text-dim); line-height: 1.6; flex: 1; }
-  .journal-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; }
-  .journal-chips { display: flex; gap: 6px; flex-wrap: wrap; }
-  .journal-read { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.05em; }
-  .journal-card.soon { opacity: 0.35; pointer-events: none; }
-  .soon-label { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; }
-
   /* CONTACT */
   .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
   .contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 24px; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; gap: 8px; }
@@ -249,7 +228,7 @@
   <ul class="nav-links">
     <li><a href="#projects">Projects</a></li>
     <li><a href="#community">Community</a></li>
-    <li><a href="#journal">Journal</a></li>
+    <li><a href="#leadership">Leadership</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -265,26 +244,27 @@
     <h1>Farhan<br/><span class="hero-name-accent">Shibib</span></h1>
     <p class="hero-subtitle">Electrical Engineering Student</p>
     <div class="hero-about">
-      <p>I'm an Electrical Engineering student at the University of South Florida, with a focus on digital systems, embedded electronics, and power systems.</p>
-      <p>This portfolio exists because I believe the best engineers document their work. Every lab entry here represents real hands-on debugging, real mistakes, and real lessons — not just theory.</p>
-      <p>Outside of coursework I'm involved in the IEEE ElectraThon electric vehicle project and SCOPE — the Society for Critical Operations and Preparedness Engineering — working on drone systems, embedded electronics, power delivery, and field-deployable hardware.</p>
+      <p>I'm an Electrical Engineering student at the University of South Florida, focused on digital systems, embedded electronics, and power systems.</p>
+      <p>Outside of class I work with SCOPE — the Society for Critical Operations and Preparedness Engineering — building drone systems, power electronics, and field-deployable hardware. I wrapped up the IEEE ElectraThon electric vehicle project and I'm now working toward SoutheastCon. I'm also a Resident Assistant, which has taught me as much about working with people as any lab has taught me about circuits.</p>
+      <p>On the research side, I'm an undergraduate researcher in the TROPICS Lab under Dr. Ashwin Bharadwaj Parthasarathy, working on DCS/iDCS experimentation and upgrading lab equipment.</p>
+      <p>Outside of school I play soccer and volleyball, and I play drums.</p>
     </div>
     <div class="hero-cta">
-      <a href="#journal" class="btn btn-primary">View Lab Journal →</a>
-      <a href="#projects" class="btn btn-secondary">Projects</a>
+      <a href="#projects" class="btn btn-primary">Projects →</a>
+      <a href="#leadership" class="btn btn-secondary">Leadership</a>
     </div>
     <div class="hero-stats">
       <div class="stat-item">
-        <div class="stat-num">1<span>+</span></div>
-        <div class="stat-label">Semesters Logged</div>
+        <div class="stat-num">2<span>+</span></div>
+        <div class="stat-label">Leadership Roles</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">1<span>+</span></div>
-        <div class="stat-label">Lab Entries</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">3<span>+</span></div>
+        <div class="stat-num">2<span>+</span></div>
         <div class="stat-label">Active Projects</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1<span>+</span></div>
+        <div class="stat-label">Years as an RA</div>
       </div>
     </div>
   </div>
@@ -302,13 +282,17 @@
   <!-- ElectraThon -->
   <a href="electrathon.html" class="project-card">
     <div>
-      <div class="project-tag">IEEE / Multi-Semester</div>
+      <div class="project-tag">
+        IEEE / Multi-Semester
+        <span class="community-badge"><span class="community-dot"></span>Concluded</span>
+      </div>
       <div class="project-title">ElectraThon Electric Vehicle</div>
       <p class="project-desc">
         Multi-semester electric vehicle design project through the IEEE student chapter.
-        Work spans a 7s3p Molicel Li-Ion battery pack, a 30V–24V DC-DC buck converter for onboard
+        Work spanned a 7s3p Molicel Li-Ion battery pack, a 30V–24V DC-DC buck converter for onboard
         audio and lighting, real-time telemetry via Raspberry Pi, and embedded firmware for
-        data logging and driver alerts during competition runs.
+        data logging and driver alerts during competition runs. Now that ElectraThon has wrapped up,
+        I'm working toward SoutheastCon next.
       </p>
       <div class="project-chips">
         <span class="chip">Battery Systems</span>
@@ -383,55 +367,60 @@
   </a>
 </section>
 
-<!-- JOURNAL -->
-<section class="section" id="journal">
+<!-- LEADERSHIP -->
+<section class="section" id="leadership">
   <div class="section-header">
-    <span class="section-tag">04 — Lab Journal</span>
+    <span class="section-tag">04 — Leadership</span>
     <div class="section-line"></div>
   </div>
-  <h2>Semester Learning Log</h2>
-  <p class="section-intro">
-    A documented record of every lab, project, and concept I work through each semester —
-    written for future employers and my future self.
-  </p>
+  <h2>Leadership</h2>
+  <p class="section-intro">The roles where I'm responsible for people and outcomes, not just circuits.</p>
 
-  <div class="journal-grid">
-
-    <a href="bcd-adder.html" class="journal-card">
-      <div class="journal-date">March 2026</div>
-      <div class="journal-course">Digital Systems</div>
-      <div class="journal-title">BCD Adder on a Breadboard</div>
-      <p class="journal-desc">
-        Built a full BCD adder using 74HC283 chips, CD4511 decoder, and a 7-segment display.
-        Debugged 7 hardware issues including floating inputs, power supply problems, and burned components.
-      </p>
-      <div class="journal-footer">
-        <div class="journal-chips">
-          <span class="chip">74HC283</span>
-          <span class="chip">CD4511</span>
-          <span class="chip">Debug</span>
-        </div>
-        <span class="journal-read">Read →</span>
+  <!-- Resident Assistant -->
+  <a href="resident-assistant.html" class="project-card">
+    <div>
+      <div class="project-tag">
+        Kosove Hall · Fall 2026 – Spring 2027
+        <span class="scope-badge"><span class="scope-dot"></span>Active</span>
       </div>
-    </a>
-
-    <div class="journal-card soon">
-      <div class="journal-date">Coming soon</div>
-      <div class="journal-course">Electronics</div>
-      <div class="journal-title">Next Lab Entry</div>
-      <p class="journal-desc">Your next lab journal entry will appear here.</p>
-      <div class="journal-footer"><span class="soon-label">IN PROGRESS</span></div>
+      <div class="project-title">Resident Assistant</div>
+      <p class="project-desc">
+        Started as an RA at Beta Hall and I'm now at Kosove Hall for the 2026–2027 year.
+        Most of the job is showing up consistently — planning events, running bulletin boards,
+        sitting with residents through hard conversations, and being someone people can actually
+        reach. CLASP certified through RA training.
+      </p>
+      <div class="project-chips">
+        <span class="chip">Event Planning</span>
+        <span class="chip">Community Building</span>
+        <span class="chip">Crisis Response</span>
+        <span class="chip">CLASP Certified</span>
+      </div>
     </div>
+    <div class="project-arrow">→</div>
+  </a>
 
-    <div class="journal-card soon">
-      <div class="journal-date">Coming soon</div>
-      <div class="journal-course">Embedded Systems</div>
-      <div class="journal-title">Next Lab Entry</div>
-      <p class="journal-desc">Your next lab journal entry will appear here.</p>
-      <div class="journal-footer"><span class="soon-label">IN PROGRESS</span></div>
+  <!-- SCOPE Treasurer -->
+  <a href="scope.html" class="project-card scope-card">
+    <div>
+      <div class="project-tag">
+        SCOPE — USF Club
+        <span class="scope-badge"><span class="scope-dot"></span>Active</span>
+      </div>
+      <div class="project-title">Treasurer &amp; Project Lead</div>
+      <p class="project-desc">
+        Joined SCOPE as a general member in fall 2025 and was promoted to Treasurer and
+        Project Lead in spring 2026. I manage the club's budget and help keep our projects on
+        schedule, on top of still working hands-on with the drone platform.
+      </p>
+      <div class="project-chips">
+        <span class="chip">Budget &amp; Finance</span>
+        <span class="chip">Project Leadership</span>
+        <span class="chip">Team Coordination</span>
+      </div>
     </div>
-
-  </div>
+    <div class="project-arrow">→</div>
+  </a>
 </section>
 
 <!-- CONTACT -->

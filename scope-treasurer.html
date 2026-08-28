@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Treasurer &amp; Project Lead, SCOPE — Farhan Shibib</title>
+<title>Resident Assistant — Farhan Shibib</title>
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
   :root {
@@ -82,6 +82,17 @@
   .chip-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
   .chip { font-family: var(--mono); font-size: 10px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 2px; color: var(--text-dim); background: var(--surface2); letter-spacing: 0.05em; }
 
+  /* KUDOS CARDS */
+  .kudos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; margin-top: 8px; }
+  .kudos-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+    padding: 28px; position: relative; overflow: hidden;
+  }
+  .kudos-card::before { content: '"'; position: absolute; top: 8px; left: 16px; font-family: var(--display); font-size: 60px; color: var(--border2); line-height: 1; }
+  .kudos-quote { font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 16px; padding-left: 8px; position: relative; z-index: 1; }
+  .kudos-name { font-family: var(--mono); font-size: 12px; color: var(--accent3); letter-spacing: 0.05em; }
+  .kudos-role { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.05em; margin-top: 2px; }
+
   /* IMAGE PLACEHOLDER */
   .image-placeholder {
     border: 1px dashed var(--border2); border-radius: 6px; background: var(--surface);
@@ -94,14 +105,6 @@
   ul.plain-list { list-style: none; margin-top: 8px; }
   ul.plain-list li { font-size: 15px; color: var(--text); padding-left: 22px; position: relative; margin-bottom: 12px; max-width: 700px; }
   ul.plain-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent3); }
-
-  /* TIMELINE */
-  .timeline { margin-top: 8px; }
-  .timeline-item { display: flex; gap: 20px; padding-bottom: 24px; position: relative; }
-  .timeline-item:not(:last-child)::before { content: ''; position: absolute; left: 5px; top: 18px; bottom: 0; width: 1px; background: var(--border); }
-  .timeline-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--accent3); flex-shrink: 0; margin-top: 4px; }
-  .timeline-date { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
-  .timeline-text { font-size: 14px; color: var(--text); }
 
   /* FOOTER */
   footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; flex-wrap: wrap; gap: 16px; max-width: 900px; margin: 0 auto; }
@@ -129,9 +132,9 @@
 
 <div class="page-header">
   <a href="index.html#leadership" class="back-link">← Back to Leadership</a>
-  <div class="page-tag">SCOPE — USF Club</div>
-  <h1>Treasurer &amp; Project Lead</h1>
-  <p class="page-subtitle">Society for Critical Operations &amp; Preparedness Engineering</p>
+  <div class="page-tag">Kosove Hall · Fall 2026 – Spring 2027</div>
+  <h1>Resident Assistant</h1>
+  <p class="page-subtitle">Beta Hall (2026) → Kosove Hall (2026–2027)</p>
 </div>
 
 <section class="section">
@@ -141,32 +144,17 @@
   </div>
   <div class="body-text">
     <p>
-      I joined SCOPE as a general member in fall 2025, working on the club's UAV project —
-      helping with ArduPilot integration, electromagnet payload control, and the power delivery
-      chain for the drone. In spring 2026 I was promoted to Treasurer and Project Lead.
+      I started as an RA at Beta Hall and moved to Kosove Hall for the 2026–2027 year. It's not
+      an engineering role, but it's the one that's taught me the most about actually showing up
+      for people — being reliable, communicating clearly, and staying calm when something goes
+      wrong at 11pm on a duty night.
     </p>
     <p>
-      The technical work on the drone platform still shows up under Projects on this site — this
-      page is about the other half of the role: running the club's budget and keeping our
-      projects moving.
+      I'm CLASP certified through RA training, and I hold every part of the job the same way I'd
+      hold a lab report: document it, follow through, and don't cut corners.
     </p>
   </div>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div>
-        <div class="timeline-date">Fall 2025</div>
-        <div class="timeline-text">Joined SCOPE as a general member, working on the UAV project.</div>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div>
-        <div class="timeline-date">Spring 2026</div>
-        <div class="timeline-text">Promoted to Treasurer &amp; Project Lead.</div>
-      </div>
-    </div>
-  </div>
+  <div class="image-placeholder">Photo — coming soon</div>
 </section>
 
 <section class="section">
@@ -175,18 +163,47 @@
     <div class="section-line"></div>
   </div>
   <ul class="plain-list">
-    <li>Manage the club's budget — tracking spending and making sure funds are there for parts and events.</li>
-    <li>Help keep our projects, like the public safety drone, on schedule.</li>
-    <li>Design promotional materials for the club, matching SCOPE's established visual branding.</li>
-    <li>Helped organize and run SCOPE's outreach event at Temple Terrace Elementary, teaching around 90 4th graders fire safety, hurricane prep, and first aid.</li>
+    <li>Plan and run community events — including a volleyball event I organized with another RA that pulled a strong turnout for our floor's first social of the year.</li>
+    <li>Design and build bulletin boards and printed materials for the hall.</li>
+    <li>Give presentations to residents and run floor meetings.</li>
+    <li>Keep closing spreadsheets and room-check records updated and accurate.</li>
+    <li>Submit and track maintenance work orders for residents.</li>
+    <li>Cover shifts and support other RAs when something comes up — swapping duty nights, grabbing the duty bag for someone running late, that kind of thing.</li>
   </ul>
   <div class="chip-row">
-    <span class="chip">Budget &amp; Finance</span>
-    <span class="chip">Project Leadership</span>
-    <span class="chip">Community Outreach</span>
-    <span class="chip">Design</span>
+    <span class="chip">Event Planning</span>
+    <span class="chip">Bulletin Boards</span>
+    <span class="chip">Duty Coverage</span>
+    <span class="chip">CLASP Certified</span>
   </div>
-  <div class="image-placeholder">Photos — coming soon</div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <span class="section-tag">Feedback From My Supervisors</span>
+    <div class="section-line"></div>
+  </div>
+  <p class="body-text" style="margin-bottom: 24px;">
+    A couple of notes I got from RLC staff after a busy weekend where we handled a lot together.
+  </p>
+  <div class="kudos-grid">
+    <div class="kudos-card">
+      <p class="kudos-quote">"Huge kudos to Farhan. He did an extraordinary job over this weekend — we tackled a lot together."</p>
+      <div class="kudos-name">Aaron Hernandez</div>
+      <div class="kudos-role">Residence Life Coordinator, Juniper Hall</div>
+    </div>
+    <div class="kudos-card">
+      <p class="kudos-quote">"Congratulations Farhan on doing a great job this weekend! Aaron gave you a shout out. Huge kudos to Farhan — he did an extraordinary job over this weekend, we tackled a lot together."</p>
+      <div class="kudos-name">Jasmine Ayo-Ajayi</div>
+      <div class="kudos-role">Residence Life Coordinator, Kosove Apartments</div>
+    </div>
+  </div>
+  <p class="body-text" style="margin-top: 24px;">
+    I've also gotten shout-outs from fellow RAs at staff meetings — for how our first event of the
+    year came together with a strong turnout, and for small stuff like covering someone's duty bag
+    so they wouldn't be late.
+  </p>
+  <div class="image-placeholder">Screenshots / photos — coming soon</div>
 </section>
 
 <footer>
